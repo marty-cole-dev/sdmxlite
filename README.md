@@ -102,4 +102,5 @@ every attempt counts as a failed login and can lock the account.
 ## License
 
 GPL-2: the GNU General Public License version 2, the license of the Linux
-kernel. See [LICENSE.md](LICENSE.md).
+kernel. See
+[LICENSE.md](https://github.com/marty-cole-dev/sdmxlite/blob/main/LICENSE.md).

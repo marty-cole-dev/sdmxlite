@@ -3,6 +3,10 @@
 0 errors | 0 warnings | 1 note
 
 * This is a new submission.
+* The words flagged as possibly misspelled in DESCRIPTION are SDMX terms:
+  "Dataflows" and "codelists" are SDMX artefact names, and "eXchange" is
+  the official spelling of the standard's name (Statistical Data and
+  Metadata eXchange).
 
 ## Test environments
 
