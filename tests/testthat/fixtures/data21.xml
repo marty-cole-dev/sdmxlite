@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<message:StructureSpecificData xmlns:message="http://www.sdmx.org/resources/sdmxml/schemas/v2_1/message"
+    xmlns:ss="http://www.sdmx.org/resources/sdmxml/schemas/v2_1/data/structurespecific"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ns1="urn:sdmx:org.sdmx.infomodel.datastructure.DataStructure=ECB:ECB_EXR1(1.0):ObsLevelDim:TIME_PERIOD">
+  <message:Header><message:ID>data</message:ID></message:Header>
+  <message:DataSet ss:dataScope="DataStructure" xsi:type="ns1:DataSetType" ss:structureRef="ECB_EXR1" action="Replace">
+    <Series CURRENCY="USD" CURRENCY_DENOM="EUR" FREQ="M" TITLE="US dollar/Euro">
+      <Obs TIME_PERIOD="2024-01" OBS_VALUE="1.0905" OBS_STATUS="A"/>
+      <Obs TIME_PERIOD="2024-02" OBS_VALUE="1.0795"/>
+      <Obs TIME_PERIOD="2024-03" OBS_VALUE="NaN" OBS_STATUS="A"/>
+    </Series>
+    <Series CURRENCY="GBP" CURRENCY_DENOM="EUR" FREQ="A">
+      <Obs TIME_PERIOD="2023" OBS_VALUE="0.86979"/>
+    </Series>
+  </message:DataSet>
+</message:StructureSpecificData>

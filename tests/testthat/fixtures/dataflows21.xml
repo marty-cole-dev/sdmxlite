@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<message:Structure xmlns:message="http://www.sdmx.org/resources/sdmxml/schemas/v2_1/message"
+                   xmlns:structure="http://www.sdmx.org/resources/sdmxml/schemas/v2_1/structure"
+                   xmlns:common="http://www.sdmx.org/resources/sdmxml/schemas/v2_1/common"
+                   xmlns:xml="http://www.w3.org/XML/1998/namespace">
+  <message:Header><message:ID>test</message:ID></message:Header>
+  <message:Structures>
+    <structure:Dataflows>
+      <structure:Dataflow id="EXR" agencyID="ECB" version="1.0">
+        <common:Name xml:lang="de">Wechselkurse</common:Name>
+        <common:Name xml:lang="en">Exchange Rates</common:Name>
+        <structure:Structure><Ref id="ECB_EXR1" agencyID="ECB" version="1.0" class="DataStructure"/></structure:Structure>
+      </structure:Dataflow>
+      <structure:Dataflow id="BSI" agencyID="ECB" version="1.0">
+        <common:Name xml:lang="en">Balance Sheet Items</common:Name>
+      </structure:Dataflow>
+      <structure:Dataflow id="EXR_OLD" agencyID="ECB" version="2.0">
+        <common:Name xml:lang="fr">Taux de change (ancien)</common:Name>
+      </structure:Dataflow>
+    </structure:Dataflows>
+  </message:Structures>
+</message:Structure>

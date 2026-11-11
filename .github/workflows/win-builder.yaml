@@ -1,0 +1,28 @@
+# Sends the package to win-builder (Windows, R-devel) by FTP from a GitHub
+# runner. Runs only when started by hand:
+# Actions -> win-builder -> Run workflow. The result arrives by email to the
+# maintainer in the DESCRIPTION, about 30 minutes later.
+name: win-builder
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  win-builder:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: r-lib/actions/setup-r@v2
+        with:
+          use-public-rspm: true
+
+      - uses: r-lib/actions/setup-r-dependencies@v2
+        with:
+          extra-packages: any::devtools
+
+      - name: Upload to win-builder (R-devel)
+        run: Rscript -e 'devtools::check_win_devel(quiet = TRUE)'

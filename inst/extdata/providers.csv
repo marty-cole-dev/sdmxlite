@@ -1,0 +1,16 @@
+name,description,endpoint,version,auth
+ECB,European Central Bank,https://data-api.ecb.europa.eu/service,2.1,none
+ESTAT,Eurostat,https://ec.europa.eu/eurostat/api/dissemination/sdmx/2.1,2.1,none
+ESTAT_COMEXT,Eurostat international trade (Comext),https://ec.europa.eu/eurostat/api/comext/dissemination/sdmx/2.1,2.1,none
+OECD,OECD Data Explorer,https://sdmx.oecd.org/public/rest,2.1,none
+OECD_V3,OECD Data Explorer (SDMX 3.0),https://sdmx.oecd.org/public/rest/v2,3.0,none
+BIS,Bank for International Settlements,https://stats.bis.org/api/v1,2.1,none
+IMF,International Monetary Fund,https://api.imf.org/external/sdmx/2.1,2.1,none
+ILO,International Labour Organization,https://sdmx.ilo.org/rest,2.1,none
+UNICEF,UNICEF Data Warehouse,https://sdmx.data.unicef.org/ws/public/sdmxapi/rest,2.1,none
+UNSD,United Nations Statistics Division,https://data.un.org/WS/rest,2.1,none
+ISTAT,Istituto Nazionale di Statistica,https://esploradati.istat.it/SDMXWS/rest,2.1,none
+INSEE,Institut national de la statistique et des etudes economiques,https://bdm.insee.fr/series/sdmx,2.1,none
+NB,Norges Bank,https://data.norges-bank.no/api,2.1,none
+ABS,Australian Bureau of Statistics,https://data.api.abs.gov.au/rest,2.1,none
+PDH,Pacific Data Hub,https://stats-sdmx-disseminate.pacificdata.org/rest,2.1,none

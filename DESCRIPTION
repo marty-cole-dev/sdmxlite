@@ -1,0 +1,28 @@
+Package: sdmxlite
+Title: Lightweight Client for 'SDMX' Web Services
+Version: 0.3.0
+Authors@R: person("Martin", "Cole", email = "martin.cole.dev@gmail.com", role = c("aut", "cre", "cph"))
+Description: Access 'SDMX' (Statistical Data and Metadata eXchange,
+    <https://sdmx.org>) 2.1 and 3.0 REST web services in pure R code.
+    Dataflows, data structures, codelists and observations are returned as
+    plain data frames, and observations can be converted to 'zoo' or 'xts'
+    series.
+    A registry of public providers (central banks, statistical offices and
+    international organizations) is included. HTTP requests go through
+    'libcurl', so proxy settings from the environment and authenticated
+    proxies (basic, 'NTLM', 'Negotiate') are supported.
+License: GPL-2
+URL: https://github.com/marty-cole-dev/sdmxlite
+BugReports: https://github.com/marty-cole-dev/sdmxlite/issues
+Encoding: UTF-8
+Language: en-US
+Imports:
+    httr2 (>= 1.0.0),
+    xml2,
+    zoo
+Suggests:
+    getPass,
+    testthat (>= 3.0.0),
+    xts
+Config/testthat/edition: 3
+Config/roxygen2/version: 8.0.0

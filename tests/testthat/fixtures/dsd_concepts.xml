@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Dimensions without LocalRepresentation: the codelist is in the concept
+     (CoreRepresentation), as in the IMF answers. -->
+<message:Structure xmlns:message="http://www.sdmx.org/resources/sdmxml/schemas/v2_1/message"
+                   xmlns:structure="http://www.sdmx.org/resources/sdmxml/schemas/v2_1/structure"
+                   xmlns:common="http://www.sdmx.org/resources/sdmxml/schemas/v2_1/common">
+  <message:Header><message:ID>concepts</message:ID></message:Header>
+  <message:Structures>
+    <structure:Codelists>
+      <structure:Codelist id="CL_FREQ" agencyID="IMF" version="1.0">
+        <structure:Code id="A"><common:Name xml:lang="en">Annual</common:Name></structure:Code>
+      </structure:Codelist>
+      <structure:Codelist id="CL_COUNTRY" agencyID="IMF" version="2.0">
+        <structure:Code id="GB"><common:Name xml:lang="en">United Kingdom</common:Name></structure:Code>
+        <structure:Code id="FR"><common:Name xml:lang="en">France</common:Name></structure:Code>
+      </structure:Codelist>
+    </structure:Codelists>
+    <structure:Concepts>
+      <structure:ConceptScheme id="CS_TEST" agencyID="IMF.STA" version="5.0.0">
+        <structure:Concept id="COUNTRY">
+          <structure:CoreRepresentation><structure:Enumeration>
+            <Ref id="CL_COUNTRY" agencyID="IMF" version="2.0" class="Codelist"/>
+          </structure:Enumeration></structure:CoreRepresentation>
+        </structure:Concept>
+        <structure:Concept id="FREQUENCY">
+          <structure:CoreRepresentation><structure:Enumeration>
+            <Ref id="CL_FREQ" agencyID="IMF" version="1.0" class="Codelist"/>
+          </structure:Enumeration></structure:CoreRepresentation>
+        </structure:Concept>
+      </structure:ConceptScheme>
+    </structure:Concepts>
+    <structure:DataStructures>
+      <structure:DataStructure id="DSD_TEST" agencyID="IMF.STA" version="7.0.0">
+        <structure:DataStructureComponents>
+          <structure:DimensionList id="DimensionDescriptor">
+            <structure:Dimension id="COUNTRY" position="0">
+              <structure:ConceptIdentity>
+                <Ref maintainableParentID="CS_TEST" maintainableParentVersion="5.0.0" agencyID="IMF.STA" id="COUNTRY" class="Concept"/>
+              </structure:ConceptIdentity>
+            </structure:Dimension>
+            <structure:Dimension id="FREQUENCY" position="1">
+              <structure:ConceptIdentity>urn:sdmx:org.sdmx.infomodel.conceptscheme.Concept=IMF.STA:CS_TEST(5.0.0).FREQUENCY</structure:ConceptIdentity>
+            </structure:Dimension>
+            <structure:TimeDimension id="TIME_PERIOD" position="2"/>
+          </structure:DimensionList>
+          <structure:MeasureList id="MeasureDescriptor">
+            <structure:PrimaryMeasure id="OBS_VALUE"/>
+          </structure:MeasureList>
+        </structure:DataStructureComponents>
+      </structure:DataStructure>
+    </structure:DataStructures>
+  </message:Structures>
+</message:Structure>
