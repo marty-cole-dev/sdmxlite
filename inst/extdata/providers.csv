@@ -2,6 +2,9 @@ name,description,endpoint,version,auth
 ECB,European Central Bank,https://data-api.ecb.europa.eu/service,2.1,none
 ESTAT,Eurostat,https://ec.europa.eu/eurostat/api/dissemination/sdmx/2.1,2.1,none
 ESTAT_COMEXT,Eurostat international trade (Comext),https://ec.europa.eu/eurostat/api/comext/dissemination/sdmx/2.1,2.1,none
+ESTAT_EMPL,Eurostat - DG Employment (EMPL),https://webgate.ec.europa.eu/empl/redisstat/api/dissemination/sdmx/2.1,2.1,none
+ESTAT_GROW,Eurostat - DG Internal Market (GROW),https://webgate.ec.europa.eu/grow/redisstat/api/dissemination/sdmx/2.1,2.1,none
+AMECO,Annual macro-economic database (European Commission),https://webgate.ec.europa.eu/ecfin/redisstat/api/dissemination/sdmx/2.1,2.1,none
 OECD,OECD Data Explorer,https://sdmx.oecd.org/public/rest,2.1,none
 OECD_V3,OECD Data Explorer (SDMX 3.0),https://sdmx.oecd.org/public/rest/v2,3.0,none
 BIS,Bank for International Settlements,https://stats.bis.org/api/v1,2.1,none
@@ -14,3 +17,8 @@ INSEE,Institut national de la statistique et des etudes economiques,https://bdm.
 NB,Norges Bank,https://data.norges-bank.no/api,2.1,none
 ABS,Australian Bureau of Statistics,https://data.api.abs.gov.au/rest,2.1,none
 PDH,Pacific Data Hub,https://stats-sdmx-disseminate.pacificdata.org/rest,2.1,none
+ASTAT,Provincial Statistics Institute of Bolzano (ASTAT),https://astatsdmxservices.prov.bz.it/dsm/NSI_WS/rest,2.1,none
+NBB,National Bank of Belgium,https://nsidisseminate-stat.nbb.be/rest,2.1,none
+SWISS_STAT,Swiss Federal Statistical Office,https://disseminate.stats.swiss/rest,2.1,none
+STATCAN_CENSUS,Statistics Canada - Census Profile,https://api.statcan.gc.ca/census-recensement/profile/sdmx/rest,2.1,none
+STATCAN_NRG,Canada Energy Information,https://information-energie.canada.ca/sdmx/rest,2.1,none
