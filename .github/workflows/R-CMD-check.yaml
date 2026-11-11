@@ -1,11 +1,15 @@
 # R CMD check (which runs the testthat tests) on every push and pull
 # request.
 # The tests are offline: no SDMX provider is contacted.
+# On a tag push (e.g. v0.3.0), once the checks pass, the source tarball for
+# CRAN is built on the runner and uploaded as an artifact, so it does not
+# carry the local user name ("Packaged:" field, tar owner).
 name: R-CMD-check
 
 on:
   push:
     branches: [main]
+    tags: ['v*']
   pull_request:
   workflow_dispatch:
 
@@ -50,3 +54,35 @@ jobs:
           build_args: 'c("--no-manual", "--compact-vignettes=gs+qpdf")'
           args: 'c("--no-manual", "--as-cran")'
           error-on: '"warning"'
+
+  build:
+    needs: R-CMD-check
+    if: startsWith(github.ref, 'refs/tags/')
+    runs-on: ubuntu-latest
+    name: Build source tarball
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: r-lib/actions/setup-r@v2
+        with:
+          r-version: release
+          use-public-rspm: true
+
+      - name: Check that the tag matches the DESCRIPTION version
+        run: |
+          version=$(Rscript -e 'cat(read.dcf("DESCRIPTION", "Version"))')
+          if [ "${GITHUB_REF_NAME#v}" != "$version" ]; then
+            echo "Tag ${GITHUB_REF_NAME} does not match Version ${version}"
+            exit 1
+          fi
+
+      - name: R CMD build
+        run: R CMD build .
+
+      # archive: false uploads the .tar.gz as is (no zip around it)
+      - uses: actions/upload-artifact@v7
+        with:
+          path: sdmxlite_*.tar.gz
+          archive: false
+          if-no-files-found: error

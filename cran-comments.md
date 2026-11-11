@@ -6,7 +6,7 @@
 
 ## Test environments
 
-* local: Linux, R 4.5.3
+* local: Linux, R 4.6.1
 * GitHub Actions: ubuntu-latest (R devel, release, oldrel-1), macos-latest
   (R release), windows-latest (R release)
 
