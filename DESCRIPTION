@@ -1,6 +1,6 @@
 Package: sdmxlite
 Title: Lightweight Client for 'SDMX' Web Services
-Version: 0.3.0
+Version: 0.3.1
 Authors@R: person("Martin", "Cole", email = "martin.cole.dev@gmail.com", role = c("aut", "cre", "cph"))
 Description: Access 'SDMX' (Statistical Data and Metadata eXchange,
     <https://sdmx.org>) 2.1 and 3.0 REST web services in pure R code.

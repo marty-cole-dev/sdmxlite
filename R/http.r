@@ -10,10 +10,10 @@
 #' @param host Proxy host, e.g. "proxy.example.org"; if NULL
 #'   goes back to curl implementation.
 #' @param port port number where the proxy is bound.
-#' @param user Proxy user; NULL for no authentication.
-#' @param password Asked interactively when missing.
+#' @param user Proxy user (default `NULL`). 
+#' @param password Asked interactively when missing but `user` is not `NULL`
 #'   BEWARE: if you script your password somewhere, it's naturally compromised.
-#' @param auth passed to the underlaying implementation (now `httr2`)
+#' @param auth passed to the implementation (now `httr2`)
 #' @param noproxy Hosts reached directly, as in no_proxy.
 #' @return TRUE (invisibly) when a proxy is set, NULL when it is removed.
 #' @examples

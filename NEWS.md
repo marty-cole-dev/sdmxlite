@@ -1,3 +1,8 @@
+# sdmxlite 0.3.1
+
+* delegate to `httr2/curl` the handling of proxies.
+* added data providers 
+
 # sdmxlite 0.3.0
 
 * First release.

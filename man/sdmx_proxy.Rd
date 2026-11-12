@@ -19,12 +19,12 @@ goes back to curl implementation.}
 
 \item{port}{port number where the proxy is bound.}
 
-\item{user}{Proxy user; NULL for no authentication.}
+\item{user}{Proxy user (default `NULL`).}
 
-\item{password}{Asked interactively when missing.
+\item{password}{Asked interactively when missing but `user` is not `NULL`
 BEWARE: if you script your password somewhere, it's naturally compromised.}
 
-\item{auth}{passed to the underlaying implementation (now `httr2`)}
+\item{auth}{passed to the implementation (now `httr2`)}
 
 \item{noproxy}{Hosts reached directly, as in no_proxy.}
 }
