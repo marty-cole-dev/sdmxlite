@@ -94,10 +94,6 @@ AUTH_METHODS <- c(AUTH_NONE, AUTH_BASIC, AUTH_BEARER)
 USER_AGENT <- "sdmxlite (R)"
 ACCEPT_ENCODING <- "gzip, deflate"
 
-# libcurl CURLAUTH_* bit masks for CURLOPT_PROXYAUTH; "any" is
-# CURLAUTH_ANY = ~CURLAUTH_DIGEST_IE.
-CURLAUTH <- c(any = -17L, basic = 1L, digest = 2L, negotiate = 4L, ntlm = 8L)
-
 # Text of the libcurl error when the proxy refuses the CONNECT credentials.
 PROXY_AUTH_FAILURE <- "response 407"
 

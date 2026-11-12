@@ -7,12 +7,13 @@
 #' Without this, the http_proxy/https_proxy/no_proxy environment variables are
 #' used as they are.
 #'
-#' @param url Proxy URL, e.g. "http://proxy.example.org:8080"; NULL
-#'   goes back to the environment variables.
+#' @param host Proxy host, e.g. "proxy.example.org"; if NULL
+#'   goes back to curl implementation.
+#' @param port port number where the proxy is bound.
 #' @param user Proxy user; NULL for no authentication.
 #' @param password Asked interactively when missing.
 #'   BEWARE: if you script your password somewhere, it's naturally compromised.
-#' @param auth "any" lets libcurl choose among basic, NTLM, Negotiate.
+#' @param auth passed to the underlaying implementation (now `httr2`)
 #' @param noproxy Hosts reached directly, as in no_proxy.
 #' @return TRUE (invisibly) when a proxy is set, NULL when it is removed.
 #' @examples
@@ -22,20 +23,32 @@
 #' sdmx_proxy(NULL)   # back to the environment variables
 #' @export
 sdmx_proxy <- function(
-  url, user = NULL, password = NULL,
-  auth = c("any", "basic", "ntlm", "negotiate", "digest"),
+  host,
+  port = NULL,
+  user = NULL,
+  password = NULL,
+  auth = c("basic", "digest", "digest_ie", "gssnegotiate", "ntlm", "any"),
   noproxy = Sys.getenv("no_proxy", Sys.getenv("NO_PROXY"))
 ) {
-  if (is.null(url)) {
+  if (is.null(host)) {
     .state$proxy <- NULL
     return(invisible(NULL))
   }
 
   auth <- match.arg(auth)
-  if (!is.null(user) && is.null(password))
+  if (!is.null(user) && is.null(password)) {
     password <- ask_secret(sprintf("Proxy password for %s: ", user))
-  .state$proxy <- list(url = url, user = user, password = password, auth = auth,
-                       noproxy = noproxy)
+  }
+  
+  .state$proxy <- list(
+    host = host,
+    port = port,
+    user = user,
+    password = password,
+    auth = if (is.null(auth)) "any" else auth,
+    noproxy = noproxy
+  )
+  
   invisible(TRUE)
 }
 
@@ -118,17 +131,16 @@ build_request <- function(provider_def, url, accept) {
 
   proxy <- .state$proxy
   if (!is.null(proxy)) {
-    req <- httr2::req_options(req,
-      proxy = proxy$url, noproxy = proxy$noproxy,
-      proxyauth = CURLAUTH[[proxy$auth]]
+    req <- httr2::req_options(req, noproxy = proxy$noproxy)
+    ## watch out here, is req_proxy, not req_options ;)
+    req <- httr2::req_proxy(
+      req,
+      proxy$host,
+      port = proxy$port,
+      username = proxy$user,
+      password = proxy$password,
+      auth = proxy$auth
     )
-
-    if (!is.null(proxy$user)) {
-      req <- httr2::req_options(
-        req,
-        proxyuserpwd = paste0(proxy$user, ":", proxy$password)
-      )
-    }
   }
 
   httr2::req_error(req, is_error = function(resp) FALSE)

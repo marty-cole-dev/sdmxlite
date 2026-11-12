@@ -5,23 +5,26 @@
 \title{Use an authenticated proxy for this session}
 \usage{
 sdmx_proxy(
-  url,
+  host,
+  port = NULL,
   user = NULL,
   password = NULL,
-  auth = c("any", "basic", "ntlm", "negotiate", "digest"),
+  auth = c("basic", "digest", "digest_ie", "gssnegotiate", "ntlm", "any"),
   noproxy = Sys.getenv("no_proxy", Sys.getenv("NO_PROXY"))
 )
 }
 \arguments{
-\item{url}{Proxy URL, e.g. "http://proxy.example.org:8080"; NULL
-goes back to the environment variables.}
+\item{host}{Proxy host, e.g. "proxy.example.org"; if NULL
+goes back to curl implementation.}
+
+\item{port}{port number where the proxy is bound.}
 
 \item{user}{Proxy user; NULL for no authentication.}
 
 \item{password}{Asked interactively when missing.
 BEWARE: if you script your password somewhere, it's naturally compromised.}
 
-\item{auth}{"any" lets libcurl choose among basic, NTLM, Negotiate.}
+\item{auth}{passed to the underlaying implementation (now `httr2`)}
 
 \item{noproxy}{Hosts reached directly, as in no_proxy.}
 }

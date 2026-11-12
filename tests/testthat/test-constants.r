@@ -4,7 +4,6 @@ testthat::test_that("documented choices match the constants", {
   testthat::expect_equal(
     eval(formals(sdmx_add_provider)$version), SDMX_VERSIONS
   )
-  testthat::expect_setequal(eval(formals(sdmx_proxy)$auth), names(CURLAUTH))
   testthat::expect_setequal(names(WILDCARDS), SDMX_VERSIONS)
 })
 
